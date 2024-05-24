@@ -1,0 +1,99 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #f4f4f4;
+  color: #212630;
+}
+
+main {
+  padding: 48px 0;
+}
+
+.flex-col {
+  max-width: 1080px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.flex-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border: 1px solid black;
+  border-radius: 16px;
+}
+
+.step-box {
+  min-height: 400px;
+  width: 50%;
+  padding: 0 0 0 8%;
+  background-color: #4e63ed;
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+.step {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.step span {
+  width: 22px;
+  height: 22px;
+  padding-top: 1px;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #4e63ed;
+  border-radius: 50%;
+}
+
+.stepForm {
+  padding: 10%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepForm,
+.thank-you {
+  width: 50%;
+}
+
+.stepForm > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.submit {
+  max-width: 200px;
+  padding: 4px 0;
+}
+
+.hidden {
+  display: none;
+}

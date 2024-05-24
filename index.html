@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="form-box flex-col">
+        <h1 class="title">Multi-step Form</h1>
+
+        <div class="flex-row">
+          <div class="step-box">
+            <div class="step stepOne">
+              <span>1</span>
+              <p>First Step</p>
+            </div>
+            <div class="step stepTwo">
+              <span>2</span>
+              <p>Second Step</p>
+            </div>
+            <div class="step stepThree">
+              <span>3</span>
+              <p>Third Step</p>
+            </div>
+          </div>
+          <!-- First Step -->
+          <form class="first stepForm">
+            <h2>First Step</h2>
+            <div>
+              <label for="email">Email:</label>
+              <input id="email" type="email" name="email" />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input id="password" type="password" name="password" />
+            </div>
+            <button type="submit" id="FirstSubmit" class="submit">
+              Submit
+            </button>
+          </form>
+          <!-- Second Step -->
+          <form class="second stepForm hidden">
+            <label for="movie">Favorite Movie:</label>
+            <input id="movie" type="text" name="movie" />
+            <label for="show">Favorite TV Show:</label>
+            <input id="show" type="text" name="show" />
+            <button type="submit" class="submit">Submit</button>
+          </form>
+          <!-- Third Step -->
+          <form class="third stepForm hidden">
+            <label for="movie">Favorite Food:</label>
+            <input id="food" type="text" name="food" />
+            <label for="show">Favorite Drink:</label>
+            <input id="drink" type="text" name="drink" />
+            <button type="submit" class="submit">Submit</button>
+          </form>
+
+          <!-- Thank you -->
+          <div class="thank-you hidden">
+            <h2>Thank you for submitting the form!</h2>
+            <div class="results">
+              <p>Email: <span id="emailResult"></span></p>
+              <p>Password: <span id="passwordResult"></span></p>
+              <p>Favorite Movie: <span id="movieResult"></span></p>
+              <p>Favorite TV Show: <span id="showResult"></span></p>
+              <p>Favorite Food: <span id="foodResult"></span></p>
+              <p>Favorite Drink: <span id="drinkResult"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
