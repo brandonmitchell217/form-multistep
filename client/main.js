@@ -14,16 +14,25 @@ const steps = {
   stepThree: document.querySelector(".stepThree"),
 };
 
+// Validation of inputs
+
 function handleFormSubmit(form, nextForm, step) {
   return (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    formData.forEach((value, key) => {
-      data[key] = value;
+    form.querySelectorAll("input").forEach((input) => {
+      if (!input.value) {
+        alert("Please fill in all fields");
+        return;
+      }
+      data[input.name] = input.value;
     });
 
     form.style.display = "none";
     updateStepDecoration(step);
+
+    if (form === forms.thirdForm) {
+      sendData();
+    }
 
     if (nextForm) {
       nextForm.classList.remove("hidden");
@@ -44,11 +53,24 @@ function updateStepDecoration(step) {
 function displayResults() {
   forms.thankYou.classList.remove("hidden");
   document.querySelector("#emailResult").textContent = data.email;
-  document.querySelector("#passwordResult").textContent = data.password;
+  document.querySelector("#nameResult").textContent = data.name;
   document.querySelector("#movieResult").textContent = data.movie;
   document.querySelector("#showResult").textContent = data.show;
   document.querySelector("#foodResult").textContent = data.food;
   document.querySelector("#drinkResult").textContent = data.drink;
+}
+
+async function sendData() {
+  const response = await fetch("http://localhost:3001/form_data", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const json = await response.json();
+  console.log(json);
 }
 
 forms.firstForm.addEventListener(
