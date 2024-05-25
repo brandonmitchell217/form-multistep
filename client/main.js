@@ -14,18 +14,45 @@ const steps = {
   stepThree: document.querySelector(".stepThree"),
 };
 
-// Validation of inputs
-
 function handleFormSubmit(form, nextForm, step) {
   return (e) => {
     e.preventDefault();
     form.querySelectorAll("input").forEach((input) => {
-      if (!input.value) {
-        alert("Please fill in all fields");
-        return;
-      }
       data[input.name] = input.value;
     });
+
+    switch (form) {
+      case forms.firstForm:
+        if (data.email.indexOf("@") === -1 || data.email.value <= 1) {
+          alert("Please enter a valid email address");
+          return;
+        }
+        if (data.name.length < 2) {
+          alert("Please enter a valid name");
+          return;
+        }
+        break;
+      case forms.secondForm:
+        if (data.movie.value <= 1) {
+          alert("Please select a movie");
+          return;
+        }
+        if (data.show.value <= 1) {
+          alert("Please select a show");
+          return;
+        }
+        break;
+      case forms.thirdForm:
+        if (data.food.value <= 1) {
+          alert("Please select a show");
+          return;
+        }
+        if (data.drink.value <= 1) {
+          alert("Please select a show");
+          return;
+        }
+        break;
+    }
 
     form.style.display = "none";
     updateStepDecoration(step);
@@ -40,7 +67,7 @@ function handleFormSubmit(form, nextForm, step) {
       displayResults();
     }
 
-    console.log(data);
+    // console.log(data);
   };
 }
 
